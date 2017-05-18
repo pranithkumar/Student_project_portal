@@ -22,13 +22,13 @@ public class FileUpload extends HttpServlet {
 	    InputStream fileBytes = null;
 
 	    try {	
-		/*if (!filePart.getContentType().equals("application/pdf"))
+		/*if (!filePart.getContentType().equals("application/pdf"))		//Code for accepting only pdf files
      	    {
 		    		   writer.println("<br/> Invalid File");
 		    		   return;
      	    }
 		    
-     	   else if (filePart.getSize()>1048576 ) { //2mb
+     	   else if (filePart.getSize()>1048576 ) { 	//Code for accepting files of fixed length
      		   {
      		  writer.println("<br/> File size too big");
      		  return;
@@ -41,8 +41,6 @@ public class FileUpload extends HttpServlet {
 	        Statement stmt=null;
 			try
 			{
-				//Class.forName("com.mysql.jdbc.Driver");
-		    	//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","j123456");
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 				con =DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","pranith","pranith");
 				if (session == null || session.getAttribute("username") == null)
@@ -57,8 +55,6 @@ public class FileUpload extends HttpServlet {
 		    try
 			{     
 		    	stmt = con.createStatement();
-		    	//to create table with blob field (One time only)
-		    	//stmt.executeUpdate("CREATE TABLE MAINT (BookId varchar (10) not null , BookContent MEDIUMBLOB, Primary key (BookId))");
 		    }
 			catch (Exception e)
 			{
@@ -85,7 +81,6 @@ public class FileUpload extends HttpServlet {
 	    }
 		catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		finally
