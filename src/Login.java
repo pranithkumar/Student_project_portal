@@ -18,7 +18,6 @@ public class Login extends HttpServlet
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection connection=null;
 		connection =DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","pranith","pranith");
-		//connection =DriverManager.getConnection("jdbc:oracle:thin:@192.168.1.99:1521:cse14","cse_106","cse_106");
 		Statement st=connection.createStatement();
 		//out.println("Connected to database succesfully");
 		ResultSet rs=st.executeQuery("select * from LOGIN");
@@ -27,22 +26,13 @@ public class Login extends HttpServlet
 		HttpSession session = req.getSession();
 		session.setAttribute("username",username);
 		session.setAttribute("password",password);
-		//out.println("<table border=1>");
 		while(rs.next())
 		{
 			if(username.equals(rs.getString(3))&&password.equals(rs.getString(2)))
 				flag=1;	
-			//out.println("<tr><td>"+rs.getString(1)+"</td><td>"+rs.getString(2)+"</td><td>"+rs.getString(3)+"</td></tr>");
 		}
-		//out.println("</table>");
 		if(flag==1)
 		{
-			/*String temp = (String) session.getAttribute("username");
-			out.println("Session username="+temp);
-			out.println("<body><h1> Login successful </h1><form method=\"post\" action=\"index.html\"> <input type=\"submit\" name=\"Logout\" value=\"Logout\"></form>");
-			out.println("<form method=\"post\" action=\"UploadFile\" enctype=\"multipart/form-data\">");
-			out.println("");
-			out.println("</form></body></html>");*/
 			res.sendRedirect("welcome.jsp");
 		}
 		else
