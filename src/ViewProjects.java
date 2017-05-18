@@ -20,7 +20,6 @@ public class ViewProjects extends HttpServlet
 		HttpSession session = req.getSession();
 		if (session == null || session.getAttribute("username") == null)
 				res.sendRedirect("index.html");
-		//connection =DriverManager.getConnection("jdbc:oracle:thin:@192.168.1.99:1521:cse14","cse_106","cse_106");
 		Statement st=connection.createStatement();
 		//out.println("Connected to database succesfully");
 		String projectId=(String)req.getParameter("param");		
