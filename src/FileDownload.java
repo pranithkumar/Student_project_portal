@@ -10,7 +10,6 @@ import javax.servlet.annotation.*;
 public class FileDownload extends HttpServlet {
     public FileDownload() {
         super();
-        // TODO Auto-generated constructor stub
     }
 	
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -25,7 +24,6 @@ public class FileDownload extends HttpServlet {
 		{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con =DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","pranith","pranith");
-			//con =DriverManager.getConnection("jdbc:oracle:thin:@192.168.1.121:1521:xe","cse_106","cse_106");
 			//out.println("Connected to database successfully");
 			HttpSession session = request.getSession();
 			if (session == null || session.getAttribute("username") == null)
@@ -40,7 +38,6 @@ public class FileDownload extends HttpServlet {
 					ext=rs.getString(4);
 				}
 			}
-			//out.println("BookId="+bookId);
 		}
 		catch (Exception e)
 		{
@@ -63,7 +60,6 @@ public class FileDownload extends HttpServlet {
         }
 		catch(SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
         }
         sos.flush();
