@@ -12,8 +12,6 @@ throws ServletException,IOException {
  	res.setContentType("text/html");
 	PrintWriter out=res.getWriter();
 	try {
-		//PrintWriter out=res.getWriter();
-		//out.println("<html>\n<head>\n<title>Login Page</title>\n</head>");
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection connection=null;
 		connection =DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","pranith","pranith");
